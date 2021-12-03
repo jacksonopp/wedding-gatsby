@@ -13,7 +13,7 @@ const Nav: React.FC = () => {
   }
 
   return (
-    <header className="flex flex-col justify-center items-center top-0 z-10 bg-white sticky">
+    <header className="flex flex-col justify-center items-center top-0 z-10 bg-white sticky border-b border-black">
       <button className="absolute left-2 top-3 sm:top-4 md:hidden" onClick={() => setNavOpen(true)}>
         menu
       </button>

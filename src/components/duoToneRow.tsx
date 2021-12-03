@@ -2,9 +2,9 @@ import React, { ReactNode } from "react"
 import { BackgroundColor } from "../types/color"
 
 interface Props {
-  leftChildren: ReactNode
+  leftChildren?: ReactNode
   leftColor: BackgroundColor
-  rightChildren: ReactNode
+  rightChildren?: ReactNode
   rightColor: BackgroundColor
 }
 

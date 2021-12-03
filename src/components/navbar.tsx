@@ -1,15 +1,18 @@
-import { Link } from 'gatsby';
-import React from 'react'
-import {navBar, navLink, navLinkActive} from './nav.module.css';
+import { Link } from "gatsby"
+import React from "react"
+import { navBar, navLink, navLinkActive } from "./nav.module.css"
 
 interface Props {
   closeNav?: () => void
 }
 
-const Navbar: React.FC<Props> = ({closeNav}) => {
+const Navbar: React.FC<Props> = ({ closeNav }) => {
   return (
     <nav className={navBar}>
-      <button className="absolute right-4 text-4xl md:hidden" onClick={closeNav}>
+      <button
+        className="absolute right-4 text-4xl md:hidden"
+        onClick={closeNav}
+      >
         &times;
       </button>
       <Link
@@ -28,7 +31,11 @@ const Navbar: React.FC<Props> = ({closeNav}) => {
       >
         schedule
       </Link>
-      <a className={navLink} href="#">
+      <a
+        className={navLink}
+        target="_blank"
+        href="https://forms.gle/2prVRKTd1xRNvFCJ7"
+      >
         rsvp
       </a>
       <Link
@@ -47,7 +54,11 @@ const Navbar: React.FC<Props> = ({closeNav}) => {
       >
         things to do
       </Link>
-      <a className={navLink} href="/registry">
+      <a
+        className={navLink}
+        target="_blank"
+        href="https://www.crateandbarrel.com/gift-registry/johanna-ruby-and-jackson-oppenheim/r6257759"
+      >
         registry
       </a>
       <Link

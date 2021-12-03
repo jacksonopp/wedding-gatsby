@@ -2,7 +2,8 @@
   @apply fixed h-screen w-screen bg-gray-50 
         bg-opacity-90 z-20 top-0 flex flex-col 
         items-center py-3
-        md:block md:h-auto md:w-auto md:relative md:bg-transparent;
+        md:block md:h-auto md:w-auto md:relative md:bg-transparent
+        ;
 }
 
 .nav-link {
