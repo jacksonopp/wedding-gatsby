@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap");
+
+html {
+  font-family: "Goudy Bookletter 1911", serif;
+}
+
+.nav-link {
+  @apply py-2 px-4 max-w-xs rounded-md hover:bg-gray-100 hover:shadow;
+}
+
+.nav-link-active {
+  @apply bg-wedding-purple hover:bg-wedding-purple;
+}

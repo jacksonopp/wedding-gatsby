@@ -22,8 +22,8 @@ const Layout: React.FC<Props> = ({ children, pageTitle }) => {
   return (
     <>
       <Helmet title={`${pageTitle} | ${data.site.siteMetadata.title}`} />
-      <Nav />
-      <main>{children}</main>
+      <Nav/>
+      <>{children}</>
     </>
   )
 }
