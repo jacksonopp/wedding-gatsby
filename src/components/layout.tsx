@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
-import {Helmet} from "react-helmet"
+import { Helmet } from "react-helmet"
 import { SiteMetaData } from "../types/metadata"
 import Nav from "./nav"
 
@@ -22,7 +22,12 @@ const Layout: React.FC<Props> = ({ children, pageTitle }) => {
   return (
     <>
       <Helmet title={`${pageTitle} | ${data.site.siteMetadata.title}`} />
-      <Nav/>
+      <Nav />
+      {pageTitle !== "Home" && (
+        <header>
+          <h1 className="text-4xl md:hidden text-center py-4">{pageTitle}</h1>
+        </header>
+      )}
       <>{children}</>
     </>
   )

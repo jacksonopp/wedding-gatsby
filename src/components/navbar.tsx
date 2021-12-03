@@ -1,6 +1,6 @@
 import { Link } from 'gatsby';
 import React from 'react'
-import {navBar} from './nav.module.css';
+import {navBar, navLink, navLinkActive} from './nav.module.css';
 
 interface Props {
   closeNav?: () => void
@@ -14,46 +14,46 @@ const Navbar: React.FC<Props> = ({closeNav}) => {
       </button>
       <Link
         onClick={closeNav}
-        className="nav-link"
-        activeClassName="nav-link-active"
+        className={navLink}
+        activeClassName={navLinkActive}
         to="/"
       >
         home
       </Link>
       <Link
         onClick={closeNav}
-        className="nav-link"
-        activeClassName="nav-link-active"
+        className={navLink}
+        activeClassName={navLinkActive}
         to="/schedule"
       >
         schedule
       </Link>
-      <a className="nav-link" href="#">
+      <a className={navLink} href="#">
         rsvp
       </a>
       <Link
         onClick={closeNav}
-        className="nav-link"
-        activeClassName="nav-link-active"
+        className={navLink}
+        activeClassName={navLinkActive}
         to="/travel"
       >
         travel
       </Link>
       <Link
         onClick={closeNav}
-        className="nav-link"
-        activeClassName="nav-link-active"
+        className={navLink}
+        activeClassName={navLinkActive}
         to="/things-to-do"
       >
         things to do
       </Link>
-      <a className="nav-link" href="/registry">
+      <a className={navLink} href="/registry">
         registry
       </a>
       <Link
         onClick={closeNav}
-        className="nav-link"
-        activeClassName="nav-link-active"
+        className={navLink}
+        activeClassName={navLinkActive}
         to="/faq"
       >
         faq

@@ -6,7 +6,7 @@ module.exports = {
       colors: {
         wedding: {
           'red': '#eacece',
-          'green': '#d5aece',
+          'green': '#d5eace',
           'blue': '#ced9ea',
           'yellow': '#eae7ce',
           'purple': '#d5ceea',

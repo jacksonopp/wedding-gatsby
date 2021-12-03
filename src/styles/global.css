@@ -7,11 +7,3 @@
 html {
   font-family: "Goudy Bookletter 1911", serif;
 }
-
-.nav-link {
-  @apply py-2 px-4 max-w-xs rounded-md hover:bg-gray-100 hover:shadow;
-}
-
-.nav-link-active {
-  @apply bg-wedding-purple hover:bg-wedding-purple;
-}
