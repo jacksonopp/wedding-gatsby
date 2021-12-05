@@ -3,11 +3,11 @@ import React from "react"
 import DuoToneRow from "../components/duoToneRow"
 import Layout from "../components/layout"
 import PageDescription from "../components/pageDescription"
-import { BackgroundColor } from "../types/color"
-import { AllTravelItems } from "../types/travelItem"
+import { BackgroundColor } from "../types/color.enum"
+import { IAllTravelItems } from "../types/travelItem.type"
 
 interface Props extends PageProps {
-  data: AllTravelItems
+  data: IAllTravelItems
 }
 
 const TravelPage: React.FC<Props> = ({ data }) => {

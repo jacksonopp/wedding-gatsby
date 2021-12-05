@@ -1,4 +1,4 @@
-export interface TravelItem {
+export interface ITravelItem {
   address1: string,
   address2: string,
   id: string, 
@@ -11,8 +11,8 @@ export interface TravelItem {
   }
 }
 
-export interface AllTravelItems {
+export interface IAllTravelItems {
   allContentfulTravelInfo: {
-    nodes: TravelItem[]
+    nodes: ITravelItem[]
   }
 }

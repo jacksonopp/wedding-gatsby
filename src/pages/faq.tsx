@@ -3,7 +3,7 @@ import React from "react"
 import DuoToneRow from "../components/duoToneRow"
 import Layout from "../components/layout"
 import PageDescription from "../components/pageDescription"
-import { BackgroundColor } from "../types/color"
+import { BackgroundColor } from "../types/color.enum"
 
 interface Props extends PageProps {}
 

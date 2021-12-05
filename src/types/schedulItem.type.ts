@@ -1,12 +1,12 @@
-export interface ScheduleItem {
+export interface IScheduleItem {
   title: string,
   location: string,
   date: string
   id: string
 }
 
-export interface AllScheduleItems {
+export interface IAllScheduleItems {
   allContentfulScheduleItem: {
-    nodes: ScheduleItem[]
+    nodes: IScheduleItem[]
   }
 }

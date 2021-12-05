@@ -1,13 +1,13 @@
 import { graphql, PageProps } from "gatsby"
-import React, { useEffect } from "react"
+import React from "react"
 import DuoToneRow from "../components/duoToneRow"
 import Layout from "../components/layout"
-import { BackgroundColor } from "../types/color"
-import { AllScheduleItems } from "../types/schedulItem"
+import { BackgroundColor } from "../types/color.enum"
+import { IAllScheduleItems } from "../types/schedulItem.type"
 import * as moment from "moment-timezone"
 
 interface Props extends PageProps {
-  data: AllScheduleItems
+  data: IAllScheduleItems
 }
 
 const SchedulePage: React.FC<Props> = ({ data }) => {

@@ -1,13 +1,19 @@
+import { graphql, PageProps } from "gatsby"
+import { getImage } from "gatsby-plugin-image"
 import React from "react"
 import DuoToneRow from "../components/duoToneRow"
 import Layout from "../components/layout"
 import PageDescription from "../components/pageDescription"
 import ThingToDo from "../components/thingToDo"
-import { BackgroundColor } from "../types/color"
+import { BackgroundColor } from "../types/color.enum"
+import { IAllthingsToDo } from "../types/thingToDo.type"
 
-interface Props {}
+interface Props extends PageProps {
+  data: IAllthingsToDo
+}
 
-const ThingsToDoPage = (props: Props) => {
+const ThingsToDoPage: React.FC<Props> = ({ data }) => {
+  console.log(data)
   return (
     <Layout pageTitle="Things to do">
       <PageDescription color={BackgroundColor.Yellow} pageTitle="Things to do">
@@ -18,17 +24,34 @@ const ThingsToDoPage = (props: Props) => {
           dolores.
         </p>
       </PageDescription>
-      {Array.from([, , , , , ,]).map((_, i) => (
-        <DuoToneRow
-          key={i}
-          leftColor={BackgroundColor.Green}
-          leftChildren={<ThingToDo link="#" title="title"/>}
-          rightColor={BackgroundColor.Purple}
-          rightChildren={<ThingToDo link="#" title="title"/>}
-        />
-      ))}
+      {data.allContentfulThingToDo.nodes.map((row) => {
+        let image = getImage(row.image)
+        return (
+          <DuoToneRow
+            key={row.id}
+            leftColor={BackgroundColor.Green}
+            leftChildren={<ThingToDo image={image} link={row.url} title={row.title} />}
+            rightColor={BackgroundColor.Purple}
+          />
+        )
+      })}
     </Layout>
   )
 }
+
+export const query = graphql`
+  query {
+    allContentfulThingToDo {
+      nodes {
+        url
+        title
+        id
+        image {
+          gatsbyImageData(aspectRatio: 1, width: 125)
+        }
+      }
+    }
+  }
+`
 
 export default ThingsToDoPage

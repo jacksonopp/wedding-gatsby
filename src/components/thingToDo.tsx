@@ -1,21 +1,20 @@
-import { StaticImage } from "gatsby-plugin-image"
+import { IGatsbyImageData, GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
 
 interface Props {
   link: string,
-  title: string
+  title: string,
+  image: IGatsbyImageData
 }
 
-const ThingToDo: React.FC<Props> = ({link, title}) => {
+const ThingToDo: React.FC<Props> = ({link, title, image}) => {
   return (
     <div className="flex flex-col justify-center items-center gap-4">
       <a href={link} target="_blank" id={`img-${title}`} className="rounded-full p-1 border-2 border-gray-700">
-        <StaticImage
-          src="https://picsum.photos/250"
+        <GatsbyImage
+          image={image}
           alt={title}
-          layout="constrained"
           className="rounded-full"
-          width={125}
         />
       </a>
       <label htmlFor={`img-${title}`} className="md:text-3xl">{title}</label>

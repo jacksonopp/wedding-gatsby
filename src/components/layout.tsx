@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 import { Helmet } from "react-helmet"
-import { SiteMetaData } from "../types/metadata"
+import { ISiteMetaData } from "../types/metadata.type"
 import Nav from "./nav"
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
 }
 
 const Layout: React.FC<Props> = ({ children, pageTitle }) => {
-  const data: SiteMetaData = useStaticQuery(graphql`
+  const data: ISiteMetaData = useStaticQuery(graphql`
     query {
       site {
         siteMetadata {

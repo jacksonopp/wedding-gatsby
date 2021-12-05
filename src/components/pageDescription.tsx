@@ -1,5 +1,5 @@
 import React from 'react'
-import { BackgroundColor } from '../types/color'
+import { BackgroundColor } from '../types/color.enum'
 
 interface Props {
   color: BackgroundColor,
