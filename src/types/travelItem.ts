@@ -3,6 +3,9 @@ export interface TravelItem {
   address2: string,
   id: string, 
   title: string,
+  subtitle: string,
+  phone: string,
+  url: string,
   description: {
     description: string
   }
