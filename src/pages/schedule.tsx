@@ -11,22 +11,16 @@ interface Props extends PageProps {
 }
 
 const SchedulePage: React.FC<Props> = ({ data }) => {
-  useEffect(() => {
-    let date = data.allContentfulScheduleItem.nodes[0].date
-    date = moment.tz(date, "America/Chicago").format("MMMM DD, hh:mm A")
-    console.log(date.split(", "))
-  }, [data])
-
   return (
     <Layout pageTitle="Schedule">
-      {data.allContentfulScheduleItem.nodes.map((row, i) => {
+      {data.allContentfulScheduleItem.nodes.map(row => {
         const [date, time] = moment
           .tz(row.date, "America/Chicago")
           .format("MMMM DD, hh:mm A")
           .split(", ")
         return (
           <DuoToneRow
-            key={i}
+            key={row.id}
             leftColor={BackgroundColor.Yellow}
             leftChildren={
               <div className="flex flex-col items-center">
@@ -55,6 +49,7 @@ export const query = graphql`
         title
         location
         date
+        id
       }
     }
   }
