@@ -18,7 +18,7 @@ const IndexPage = () => (
             we're getting married!
           </p>
         </section>
-        <section id="names" className="flex flex-col items-center sm:flex-row justify-center gap-5 py-28 w-screen">
+        <section id="names" className="flex flex-col items-center sm:flex-row justify-center gap-5 py-28">
           <p className="text-2xl md:text-4xl">Jackson Oppenheim</p>
           <p className="text-2xl md:text-4xl">&</p>
           <p className="text-2xl md:text-4xl">Johanna Rubby</p>

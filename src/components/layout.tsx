@@ -29,6 +29,9 @@ const Layout: React.FC<Props> = ({ children, pageTitle }) => {
         </header>
       )}
       <>{children}</>
+      <footer className="text-center border-t border-black py-3">
+        &copy; Jackson Oppenheim 2021 | Made with and Gatsby and ❤️
+      </footer>
     </>
   )
 }

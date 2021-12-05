@@ -9,12 +9,13 @@ interface Props {
 const ThingToDo: React.FC<Props> = ({link, title}) => {
   return (
     <div className="flex flex-col justify-center items-center gap-4">
-      <a href={link} target="_blank" id={`img-${title}`} className="rounded-full p-1 border border-gray-700">
+      <a href={link} target="_blank" id={`img-${title}`} className="rounded-full p-1 border-2 border-gray-700">
         <StaticImage
           src="https://picsum.photos/250"
           alt={title}
           layout="constrained"
           className="rounded-full"
+          width={125}
         />
       </a>
       <label htmlFor={`img-${title}`} className="md:text-3xl">{title}</label>

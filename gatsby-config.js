@@ -1,3 +1,6 @@
+require('dotenv').config();
+
+
 module.exports = {
   siteMetadata: {
     title: `Jackson & Johanna Wedding`,
@@ -6,6 +9,14 @@ module.exports = {
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENFUL_TOKEN,
+        host: `preview.contentful.com`,
+      }
+    },
     'gatsby-plugin-postcss',
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
