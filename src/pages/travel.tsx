@@ -46,7 +46,7 @@ const TravelPage: React.FC<Props> = ({ data }) => {
 
 // TODO: Change slug
 export const data = graphql`
-  query MyQuery {
+  query {
     contentfulPageHeaderSection(slug: { eq: "lorem" }) {
       headerContent {
         headerContent

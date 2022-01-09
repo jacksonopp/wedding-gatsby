@@ -1,31 +1,30 @@
-import { PageProps } from "gatsby"
+import { graphql, PageProps } from "gatsby"
 import React from "react"
 import DuoToneRow from "../components/duoToneRow"
 import Layout from "../components/layout"
 import PageDescription from "../components/pageDescription"
 import PageHeader from "../components/pageHeader"
 import { BackgroundColor } from "../types/color.enum"
+import { IAllFaq } from "../types/faq.type"
 
-interface Props extends PageProps {}
+interface Props extends PageProps {
+  data: IAllFaq
+}
 
-const FaqPage: React.FC<Props> = ({}) => {
+const FaqPage: React.FC<Props> = ({ data }) => {
+  console.log(data)
   return (
     <Layout pageTitle="FAQs">
       <PageDescription color={BackgroundColor.Red} pageTitle="FAQs">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex odio et,
-          tenetur architecto ullam recusandae fugiat quasi minus enim velit
-          expedita officiis ducimus illo deserunt nobis exercitationem nemo
-          libero similique!
-        </p>
+        <p>{data.contentfulPageHeaderSection.headerContent.headerContent}</p>
       </PageDescription>
-      {Array.from([, , , , ,]).map((_, i) => (
+      {data.allContentfulFaq.nodes.map((row) => (
         <DuoToneRow
-          key={i}
+          key={row.id}
           leftColor={BackgroundColor.Blue}
-          leftChildren={<p>Left children</p>}
+          leftChildren={<p>{row.question}</p>}
           rightColor={BackgroundColor.Yellow}
-          rightChildren={<p>Right children</p>}
+          rightChildren={<p>{row.answer.answer}</p>}
         />
       ))}
     </Layout>
@@ -33,3 +32,23 @@ const FaqPage: React.FC<Props> = ({}) => {
 }
 
 export default FaqPage
+
+// TODO: Change slug
+export const data = graphql`
+  query {
+    allContentfulFaq(sort: { fields: createdAt, order: ASC }) {
+      nodes {
+        id
+        question
+        answer {
+          answer
+        }
+      }
+    }
+    contentfulPageHeaderSection(slug: { eq: "lorem" }) {
+      headerContent {
+        headerContent
+      }
+    }
+  }
+`
