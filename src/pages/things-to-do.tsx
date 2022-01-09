@@ -1,9 +1,11 @@
 import { graphql, PageProps } from "gatsby"
 import { getImage } from "gatsby-plugin-image"
 import React from "react"
+import ColorRow from "../components/colorRow"
 import DuoToneRow from "../components/duoToneRow"
 import Layout from "../components/layout"
 import PageDescription from "../components/pageDescription"
+import PageHeader from "../components/pageHeader"
 import ThingToDo from "../components/thingToDo"
 import { BackgroundColor } from "../types/color.enum"
 import { IAllthingsToDo } from "../types/thingToDo.type"
@@ -17,30 +19,37 @@ const ThingsToDoPage: React.FC<Props> = ({ data }) => {
   return (
     <Layout pageTitle="Things to do">
       <PageDescription color={BackgroundColor.Yellow} pageTitle="Things to do">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut
-          laboriosam non eveniet! Quas vel quod autem unde ipsum, fuga debitis
-          placeat inventore modi, vitae est repellat delectus ratione quisquam
-          dolores.
-        </p>
+        <PageHeader>{data.contentfulPageHeaderSection.headerContent.headerContent}</PageHeader>
       </PageDescription>
-      {data.allContentfulThingToDo.nodes.map((row) => {
+      {data.allContentfulThingToDo.nodes.map((row, i) => {
         let image = getImage(row.image)
         return (
-          <DuoToneRow
+          <ColorRow
+            even={i % 2 === 0}
             key={row.id}
-            leftColor={BackgroundColor.Green}
-            leftChildren={<ThingToDo image={image} link={row.url} title={row.title} />}
-            rightColor={BackgroundColor.Purple}
-          />
+            oddColor={BackgroundColor.Purple}
+            evenColor={BackgroundColor.Green}
+          >
+            <ThingToDo 
+              link={row.url} 
+              title={row.title}
+              image={image}
+            />
+          </ColorRow>
         )
       })}
     </Layout>
   )
 }
 
+// TODO: Change slug
 export const query = graphql`
   query {
+    contentfulPageHeaderSection(slug: { eq: "lorem" }) {
+      headerContent {
+        headerContent
+      }
+    }
     allContentfulThingToDo {
       nodes {
         url

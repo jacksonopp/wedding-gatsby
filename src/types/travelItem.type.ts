@@ -1,7 +1,9 @@
+import { IPageHeader } from "./page-header.type";
+
 export interface ITravelItem {
   address1: string,
   address2: string,
-  id: string, 
+  id: string,
   title: string,
   subtitle: string,
   phone: string,
@@ -14,5 +16,6 @@ export interface ITravelItem {
 export interface IAllTravelItems {
   allContentfulTravelInfo: {
     nodes: ITravelItem[]
-  }
+  },
+  contentfulPageHeaderSection: IPageHeader
 }

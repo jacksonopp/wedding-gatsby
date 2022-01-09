@@ -21,7 +21,7 @@ const IndexPage = () => (
         <section id="names" className="flex flex-col items-center sm:flex-row justify-center gap-5 py-28">
           <p className="text-2xl md:text-4xl">Jackson Oppenheim</p>
           <p className="text-2xl md:text-4xl">&</p>
-          <p className="text-2xl md:text-4xl">Johanna Rubby</p>
+          <p className="text-2xl md:text-4xl">Johanna Ruby</p>
         </section>
         <section id="info" className="bg-wedding-red flex justify-center py-8">
           <div className="flex flex-col items-center w-11/12 gap-7">

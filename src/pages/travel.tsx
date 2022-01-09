@@ -1,5 +1,6 @@
 import { graphql, PageProps } from "gatsby"
-import React from "react"
+import React, { useEffect, useState } from "react"
+import ColorRow from "../components/colorRow"
 import DuoToneRow from "../components/duoToneRow"
 import Layout from "../components/layout"
 import PageDescription from "../components/pageDescription"
@@ -14,46 +15,43 @@ const TravelPage: React.FC<Props> = ({ data }) => {
   return (
     <Layout pageTitle="Travel">
       <PageDescription color={BackgroundColor.Green} pageTitle="Travel">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum iure
-          incidunt blanditiis labore sed quasi est sint magni voluptatem dolor
-          eos, autem deleniti animi, ducimus laboriosam, illo voluptates
-          perspiciatis eligendi.
-        </p>
+        <p>{data.contentfulPageHeaderSection.headerContent.headerContent}</p>
       </PageDescription>
-      {data.allContentfulTravelInfo.nodes.map(row => (
+      {data.allContentfulTravelInfo.nodes.map((row, i) => (
         // TODO: Make an alternating row type component
-        <DuoToneRow
+        <ColorRow
           key={row.id}
-          leftColor={BackgroundColor.Red}
-          leftChildren={
-            <div className="flex flex-col items-center">
-              <h1 className="text-2xl sm:text-4xl mb-2">{row.title}</h1>
-              <p className="text-lg sm:text-2xl mb-1">{row.subtitle ? row.subtitle : null}</p>
-              <p>{row.address1}</p>
-              <p>{row.address2}</p>
-              <p>{row.description.description}</p>
-              <a
-                target="_blank"
-                className="
-                  border border-gray-700 py-2 px-5 
-                  hover:bg-gray-300 hover:bg-opacity-50 mt-2"
-                href={row.url}
-              >
-                Visit site
-              </a>
-            </div>
-          }
-          rightColor={BackgroundColor.Yellow}
-          rightChildren={<p>right content</p>}
-        />
+          even={i % 2 === 0}
+          oddColor={BackgroundColor.Red}
+          evenColor={BackgroundColor.Blue}
+        >
+          <h2 className="text-3xl">{row.title}</h2>
+          <p>{row.subtitle}</p>
+          <br />
+          <p>{row.description.description}</p>
+          <p>{row.address1}</p>
+          <p>{row.address2}</p>
+          <a
+            className="border border-gray-700 py-2 px-5 hover:bg-gray-300 hover:bg-opacity-50"
+            href={row.url}
+            target="_blank"
+          >
+            Visit Site
+          </a>
+        </ColorRow>
       ))}
     </Layout>
   )
 }
 
+// TODO: Change slug
 export const data = graphql`
   query MyQuery {
+    contentfulPageHeaderSection(slug: { eq: "lorem" }) {
+      headerContent {
+        headerContent
+      }
+    }
     allContentfulTravelInfo {
       nodes {
         address1

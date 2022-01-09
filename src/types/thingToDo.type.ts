@@ -1,3 +1,4 @@
+import { IPageHeader } from './page-header.type';
 import { ImageDataLike } from "gatsby-plugin-image";
 
 export interface IThingToDo {
@@ -11,4 +12,5 @@ export interface IAllthingsToDo {
   allContentfulThingToDo: {
     nodes: IThingToDo[]
   }
+  contentfulPageHeaderSection: IPageHeader
 }
